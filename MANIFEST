@@ -1,7 +1,25 @@
 Changes
 lib/Parse/EDID.pm
+LICENSE
 Makefile.PL
 MANIFEST			This list of files
+Parse-EDID-1.0.tar.gz
+Parse-EDID-1/Changes
+Parse-EDID-1/lib/Parse/EDID.pm
+Parse-EDID-1/Makefile.PL
+Parse-EDID-1/MANIFEST
+Parse-EDID-1/META.json
+Parse-EDID-1/META.yml
+Parse-EDID-1/MYMETA.json
+Parse-EDID-1/MYMETA.yml
+Parse-EDID-1/README
+Parse-EDID-1/sample1
+Parse-EDID-1/t/kwalite.t
+Parse-EDID-1/t/pod-coverage.t
+Parse-EDID-1/t/pod.t
+Parse-EDID-1/t/sample1
+Parse-EDID-1/t/sample2
+Parse-EDID-1/t/test.t
 README
 sample1
 t/kwalite.t
