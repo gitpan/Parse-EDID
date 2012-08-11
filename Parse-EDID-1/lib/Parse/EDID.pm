@@ -37,7 +37,7 @@ my @edid_info = _group_by2(
     a2  => 'manufacturer_name',
 
     v => 'product_code',
-    V => 'serial_number',
+    H8 => 'serial_number',
     C => 'week',
     C => 'year',
     C => 'edid_version',
@@ -352,6 +352,9 @@ sub parse_edid {
             my $h = _get_many_bits($v, 'manufacturer_name');
             $v = join('', map { chr(ord('A') + $h->{$_} - 1) } 1 .. 3);
             $v = "" if $v eq "@@@";
+        } elsif ($field eq 'serial_number') {
+            # revert the order of the four hex values
+            $v = join('', reverse($v =~ /(..)/g));
         } elsif ($field eq 'video_input_definition') {
             $v = _get_many_bits($v, 'video_input_definition');
         } elsif ($field eq 'feature_support') {
@@ -514,7 +517,10 @@ sub parse_edid {
 
         # if the mm size given in the detailed_timing is not far from the cm size
         # put it as a more precise cm size
-        my %in_cm = map { $_ => $h->{$_ . '_image_size'} / 10 } ('horizontal', 'vertical');
+        my %in_cm = (
+            horizontal => _define($h->{horizontal_image_size}) / 10,
+            vertical   => _define($h->{vertical_image_size}) / 10,
+        );
         my ($error) = sort { $b <=> $a } map { abs($edid{'max_size_' . $_} - $in_cm{$_}) } keys %in_cm;
         if ($error <= 0.5) {
             $edid{'max_size_' . $_} = $in_cm{$_} foreach keys %in_cm;
@@ -632,6 +638,7 @@ sub find_edid_in_string {
     @edids;
 }
 
+sub _define { defined $_[0] ? $_[0] : 0 }
 sub _sqr { $_[0] * $_[0] }
 sub _round { int($_[0] + 0.5) }
 sub _group_by2 {
