@@ -4,7 +4,7 @@
       "unknown"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "gpl_3"
    ],
@@ -22,7 +22,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "YAML" : "0"
+            "ExtUtils::MakeMaker" : "0",
+            "Test::More" : "0.93"
          }
       },
       "configure" : {
@@ -35,5 +36,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "v1.0.4"
+   "version" : "v1.0.5"
 }

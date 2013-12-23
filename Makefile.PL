@@ -5,8 +5,8 @@ WriteMakefile(
     VERSION_FROM   => 'lib/Parse/EDID.pm',
     ABSTRACT_FROM  => 'lib/Parse/EDID.pm',
     LICENSE        => 'GPL_3',
-    BUILD_REQUIRES => {
-        YAML => 0
+    TEST_REQUIRES  => {
+        'Test::More' => '0.93'
     }
 );
 

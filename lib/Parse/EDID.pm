@@ -21,7 +21,7 @@ use strict;
 use warnings;
 use base 'Exporter';
 
-our $VERSION = '1.0.4';
+our $VERSION = '1.0.5';
 
 our @EXPORT = qw(
      parse_edid
