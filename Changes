@@ -1,3 +1,7 @@
+2013-12-24 1.0.6
+
+	* add a LICENSE section, to please Test::Kwalitee
+
 2013-12-22 1.0.5
 
 	* fix dependencies, requiring a minimal version for Test::More
